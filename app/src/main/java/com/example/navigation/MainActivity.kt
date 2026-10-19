@@ -65,6 +65,8 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -660,6 +662,7 @@ fun PasswordFieldDetailScreen(onBack: () -> Unit, showTopBar: Boolean = true) {
 @Composable
 fun ToggleScreen(onBack: () -> Unit, showTopBar: Boolean = true) {
     var isCheck by remember { mutableStateOf(false) }
+    val backgroundColor = if (isCheck) Color(0xFF000000) else Color(0xFFF5F5F5)
 
     Scaffold(
         topBar = {
@@ -682,14 +685,15 @@ fun ToggleScreen(onBack: () -> Unit, showTopBar: Boolean = true) {
                                 tint = Color(0xFF1D4ED8)
                             )
                         }
-                    }
-                )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = backgroundColor)                )
             }
         }
     ) { padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .background(backgroundColor)
                 .padding(padding)
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
