@@ -131,6 +131,10 @@ val componentGroupMap = mapOf(
         ComponentItem("TabBar", "Switches between main sections", "tabbar_detail"),
         ComponentItem("Menu", "Shows a menu with multiple actions", "menu_detail")
     ),
+    "Layout" to listOf(
+        ComponentItem("Column", "Arranges elements vertically", "column_detail"),
+        ComponentItem("Row", "Arranges elements horizontally", "row_detail"),
+    )
    
 )
 @Composable
@@ -195,6 +199,12 @@ fun App() {
         }
         composable("menu_detail") {
             MenuScreen(onBack = { navController.popBackStack() })
+        }
+        composable("column_detail") {
+            ColumnScreen(onBack = { navController.popBackStack() })
+        }
+        composable("row_detail") {
+            RowScreen(onBack = { navController.popBackStack() })
         }
 
     }
@@ -1162,5 +1172,225 @@ fun MenuScreen(onBack: () -> Unit) {
     }
 }
 
+@Composable
+fun ColumnScreen(onBack: () -> Unit) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        "Column",
+                        color = Color(0xFF1D4ED8),
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBack) {
+                            Icon(
+                                imageVector = Icons.Default.KeyboardArrowLeft,
+                                contentDescription = "Back",
+                                tint = Color(0xFF1D4ED8)
+                            )
+                        }
+                    }
+                )
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(2.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Spacer(modifier = Modifier.height(40.dp))
 
+            Column {
+                Row {
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF1D4ED8))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                }
+                Row {
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF1D4ED8))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                }
+                Row {
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF1D4ED8))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                }
+
+            }
+
+        }
+    }
+}
+@Composable
+fun RowScreen(onBack: () -> Unit) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        "Row",
+                        color = Color(0xFF1D4ED8),
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBack) {
+                            Icon(
+                                imageVector = Icons.Default.KeyboardArrowLeft,
+                                contentDescription = "Back",
+                                tint = Color(0xFF1D4ED8)
+                            )
+                        }
+                    }
+                )
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(2.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Spacer(modifier = Modifier.height(40.dp))
+
+            Row {
+                Column {
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF1D4ED8))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                }
+                Column {
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF1D4ED8))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                }
+                Column {
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF1D4ED8))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(100.dp)
+                            .clip(shape = RoundedCornerShape(16.dp))
+                            .background(Color(0xFF9EB4F5))
+                    )
+                }
+            }
+
+        }
+    }
+}
 
